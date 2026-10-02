@@ -26,16 +26,35 @@ WHOIS: A WHOIS record provides information about the entity that registered a do
 
 FTP: File transfer protocol
 	Used to exchange files. Common requests include:
-	- USER: To enter username
-	- PASS: To enter password
-	- RETR: to download
-	- STOR: to upload
+	- `USER`: To enter username
+	- `PASS`: To enter password
+	- `RETR`: to download
+	- `STOR`: to upload
 	Commonly uses TCP port 21.
 
-SMTP: Protocol used for sending mail
+SMTP: Simple Mail Transfer Protocol
 	Listens on port 25 by default. Some commands are:
-	- HELO or EHLO: Initializes an SMTP session
-	- MAIL FROM: Specifies senders email address
-	- RCPT TO: Specifies the receivers email address
-	- DATA: Indicates that the client will begin sending the content of the mail, ends with a `.`
+	- `HELO` or `EHLO`: Initializes an SMTP session
+	- `MAIL FROM`: Specifies senders email address
+	- `RCPT TO`: Specifies the receivers email address
+	- `DATA`: Indicates that the client will begin sending the content of the mail, ends with a `.`
 
+POP3: Post Office Protocol 3; used to retrieve emails
+	Listens on port 110 by default. Some common commands are:
+	- `AUTH`: To begin authentication
+	- `USER <username>`: To enter username
+	- `PASS<password>`: To enter password
+	- `STAT`: To display total number of emails and total size information
+	- `LIST`: Lists the number of messages with sizes
+	- `RETR <message_number>`: To retrieve a message
+	- `DELE <message_number>`: To delete a message
+	- `QUIT`: Ends the POP3 sessio
+
+IMAP: Internet Message Access Protocol. 
+	More functional version of SMTP and POP3. Messages are not delete from the server after being downloaded by the user. Listens on port 143 by default. Some common commands include:
+	- `LOGIN <username> <password>`: authenticates the user
+	- `SELECT <mailbox>`: selects the mailbox folder to work with
+	- `FETCH <mail_number> <data_item_name>`: Example: `fetch 3 body[]` to fetch message number 3, header and body.
+	- `MOVE <sequence_set> <mailbox>`: moves the specified messages to another mailbox
+	- `COPY <sequence_set> <data_item_name>`: copies the specified messages to another mailbox
+	- `LOGOUT`: logs out.  
