@@ -1,0 +1,8 @@
+# Ignore Obsidian workspace layout and local caches
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
